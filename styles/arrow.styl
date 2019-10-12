@@ -1,0 +1,32 @@
+@require './config'
+
+.arrow
+  display inline-block
+  width 0
+  height 0
+  &.up
+    border-left 4px solid transparent
+    border-right 4px solid transparent
+    border-bottom 6px solid $arrowBgColor
+  &.down
+    border-left 4px solid transparent
+    border-right 4px solid transparent
+    border-top 6px solid $arrowBgColor
+  &.right
+    border-top 4px solid transparent
+    border-bottom 4px solid transparent
+    border-left 6px solid $arrowBgColor
+  &.left
+    border-top 4px solid transparent
+    border-bottom 4px solid transparent
+    border-right 6px solid $arrowBgColor
+
+@font-face {
+  font-family: 'iconfont';  /* project id 1419668 */
+  src: url('//at.alicdn.com/t/font_1419668_apj3s9qe6.eot');
+  src: url('//at.alicdn.com/t/font_1419668_apj3s9qe6.eot?#iefix') format('embedded-opentype'),
+          url('//at.alicdn.com/t/font_1419668_apj3s9qe6.woff2') format('woff2'),
+          url('//at.alicdn.com/t/font_1419668_apj3s9qe6.woff') format('woff'),
+          url('//at.alicdn.com/t/font_1419668_apj3s9qe6.ttf') format('truetype'),
+          url('//at.alicdn.com/t/font_1419668_apj3s9qe6.svg#iconfont') format('svg');
+}
