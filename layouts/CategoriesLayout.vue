@@ -1,6 +1,6 @@
 <template>
     <div class="theme-container">
-        <div class="home-tag">
+        <div class="home-categories">
             <Categories @categoriesChange="($event) => {categoriesChange($event)}"></Categories>
         </div>
         <div class="home-page">
@@ -18,7 +18,7 @@
         data() {
             return {
                 type:{
-                    name: 'tags',
+                    name: 'categories',
                     value: '',
                 }
             }
@@ -33,18 +33,18 @@
 </script>
 
 <style scoped lang="stylus">
-    .home-tag
+    .home-categories
         padding 1rem 8rem
 
     .home-page
         padding 1rem 8rem
     @media (max-width: $MQMobile)
-        .home-tag
+        .home-categories
             padding 1rem 0
         .home-page
             padding 1rem 0
     @media (max-width: $MQMobileNarrow)
-        .home-tag
+        .home-categories
             padding 1rem 0
         .home-page
             padding 1rem 0

@@ -8,8 +8,16 @@
       <TimeLine>
       </TimeLine>
     </div>
-
-    <footer class="page-edit">
+    <div v-if="isCategories">
+      <CategoriesLayout></CategoriesLayout>
+    </div>
+    <div v-if="isTags">
+      <TagsLayout></TagsLayout>
+    </div>
+    <div v-if="isFriendLink">
+      <Friend :friendLinks="friendLinks"></Friend>
+    </div>
+    <footer class="page-edit" v-if="!isTags && !isCategories && !isFriendLink">
       <div
         class="edit-link"
         v-if="editLink"
@@ -62,7 +70,7 @@
       </p>
     </div>
     <slot name="bottom"/>
-    <ValineComment></ValineComment>
+    <ValineComment v-if="showComment"></ValineComment>
   </main>
 </template>
 
@@ -71,6 +79,9 @@ import { resolvePage, outboundRE, endingSlashRE } from '../util'
 import TimeLine from '@theme/components/TimeLine.vue'
 import ValineComment from '@theme/components/ValineComment.vue'
 import pageTitle from '@theme/components/pageTitle.vue'
+import CategoriesLayout from '@theme/layouts/CategoriesLayout.vue'
+import TagsLayout from '@theme/layouts/TagsLayout.vue'
+import Friend from '@theme/components/Friend.vue'
 
 export default {
   props: ['sidebarItems'],
@@ -79,13 +90,28 @@ export default {
 
     }
   },
-  components:{TimeLine, ValineComment, pageTitle},
+  components:{TimeLine, ValineComment, pageTitle, CategoriesLayout, TagsLayout, Friend},
   computed: {
+    showComment() {
+      return this.$page.frontmatter.isComment !== false
+    },
     lastUpdated () {
       return this.$page.lastUpdated
     },
     isTimeLine() {
       return this.$page.frontmatter.isTimeLine
+    },
+    isCategories() {
+      return this.$page.frontmatter.isCategories
+    },
+    isTags() {
+      return this.$page.frontmatter.isTags
+    },
+    friendLinks() {
+      return this.$site.themeConfig.friendLink && this.$site.themeConfig.friendLink.data
+    },
+    isFriendLink() {
+      return this.$page.frontmatter.isFriendLink
     },
     lastUpdatedText () {
       if (typeof this.$themeLocaleConfig.lastUpdated === 'string') {

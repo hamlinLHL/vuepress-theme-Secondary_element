@@ -1,12 +1,12 @@
 <template>
-    <div class="tags">
+    <div class="categories">
         <div class="tag" @click="$emit('categoriesChange', '')">
             <i class="iconfont hamlin-home"></i>
             <span class="tag-name">全部</span>
         </div>
-        <div class="tag" v-for="tag in categories" :key="tag.name" @click="$emit('categoriesChange', tag.name)" :title="tag.name">
-            <span class="tag-number">{{tag.number}}</span>
-            <span class="tag-name">{{tag.name}}</span>
+        <div class="tag" v-for="categorie in categories" :key="categorie.name" @click="$emit('categoriesChange', categorie.name)" :title="categorie.name">
+            <span class="tag-number">{{categorie.number}}</span>
+            <span class="tag-name">{{categorie.name}}</span>
         </div>
     </div>
 </template>
@@ -20,28 +20,29 @@
             }
         },
         mounted() {
-            const pageTags = this.$site.pages.filter(page => {
+            const pageCategories = this.$site.pages.filter(page => {
                 return page.frontmatter && page.frontmatter.categories && page.frontmatter.categories.length > 0
             });
-            pageTags.forEach(page => {
-                page.frontmatter.categories.forEach(tag => {
-                    this.isTagExit(tag);
+            pageCategories.forEach(page => {
+                page.frontmatter.categories.forEach(categorie => {
+                    this.isCategoriesExit(categorie);
                 })
             });
+            console.log(this.categories, '2222')
         },
         methods: {
             // 判断是否存在tag
-            isTagExit(tag) {
+            isCategoriesExit(categorie) {
                 let exsit = false;
                 this.categories.forEach(ele => {
-                    if (ele.name === tag) {
+                    if (ele.name === categorie) {
                         exsit = true;
                         ele.number +=1;
                     }
                 });
                 if (!exsit) {
                     this.categories.push({
-                        name : tag,
+                        name : categorie,
                         number: 1
                     })
                 }
@@ -53,7 +54,7 @@
 </script>
 
 <style scoped lang="stylus">
-    .tags
+    .categories
         width auto;
         &::after
             display block;

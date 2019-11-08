@@ -1,9 +1,11 @@
 <template>
-    <div class="home-tag">
-        <Tags @tagChange="($event) => {tagChange($event)}"></Tags>
-    </div>
-    <div class="home-page">
-        <PageList :type="type"></PageList>
+    <div class="theme-container">
+        <div class="home-tag">
+            <Tags @tagChange="($event) => {tagChange($event)}"></Tags>
+        </div>
+        <div class="home-page">
+            <PageList :type="type"></PageList>
+        </div>
     </div>
 </template>
 
@@ -32,6 +34,20 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="stylus">
+    .home-tag
+        padding 1rem 8rem
 
+    .home-page
+        padding 1rem 8rem
+    @media (max-width: $MQMobile)
+        .home-tag
+            padding 1rem 0
+        .home-page
+            padding 1rem 0
+    @media (max-width: $MQMobileNarrow)
+        .home-tag
+            padding 1rem 0
+        .home-page
+            padding 1rem 0
 </style>

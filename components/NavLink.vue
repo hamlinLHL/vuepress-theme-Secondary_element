@@ -47,3 +47,10 @@ export default {
   }
 }
 </script>
+<style lang="stylus">
+  .nav-link
+    i
+      padding-right 0.5rem
+  .external
+    position: relative
+</style>

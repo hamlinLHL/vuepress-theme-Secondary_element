@@ -134,6 +134,7 @@ $accentColor = #f45a8d
   background-color #fff
 .navbar
   height: $navbarHeight;
+  z-index 999
   .nav-mask
     position absolute;
     top 0;

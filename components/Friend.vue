@@ -11,14 +11,13 @@
             </div>
             <div class="title-method">
                 <p>比如：</p>
-                <p>名字： 小城旧事</p>
-                <p>头像地址： http://honglinliu.com/picture/lufei1.jpg</p>
-                <p>网页地址： http://honglinliu.com/myBlog/</p>
-                <p>一句话介绍： 不会弹吉他的前端不是好全栈</p>
+                <p>名字：<span>{{links[0] && links[0].name}}</span></p>
+                <p>头像地址： <span>{{links[0] && links[0].avatar}}</span></p>
+                <p>网页地址： <span>{{links[0] && links[0].src}}</span></p>
+                <p>一句话介绍： <span>{{links[0] && links[0].introduce}}</span></p>
             </div>
         </div>
         <div class="box">
-            <div class="my">小伙伴们,有空常来玩啊</div>
             <div class="content" v-for="link in links" @click="open(link.src)">
                 <img :src=link.avatar alt="">
                 <div class="header-right">
@@ -32,20 +31,12 @@
 <script>
     export default  {
         name: 'Friend',
+        props: {
+            friendLinks: Array
+        },
         data() {
             return {
-               links: [{
-                   name: '小城旧事',
-                   introduce: '不会弹吉他的前端不是好全栈',
-                   avatar: 'http://honglinliu.com/picture/lufei1.jpg',
-                   src: 'http://honglinliu.com/myBlog/'
-               },
-                   {
-                       name: '麋鹿鲁哟',
-                       introduce: '大道至简，知易行难',
-                       avatar: 'https://miluluyo.github.io/union/o_my.jpg',
-                       src: 'https://www.cnblogs.com/miluluyo/'
-                   }],
+               links: this.friendLinks,
             }
         },
         mounted() {
@@ -57,12 +48,13 @@
         }
     }
 </script>
-<style lang="scss">
-    $back:lightsalmon;
+<style lang="stylus">
+    $back = lightsalmon;
     *{
         list-style: none;
     }
     .container{
+        padding: 1rem 8rem
         width: 100%;
         height: 100%;
         cursor: url(http://honglinliu.com/cur/normal.cur), auto;
@@ -74,24 +66,13 @@
         }
         .box{
             width: 100%;
-            padding: 10px;
             margin-top: 20px;
-            .my{
-                font-size: 35px;
-                font-weight: bolder;
-                padding: 20px 0;
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                color: #fff;
-                background-image: url("http://honglinliu.com/picture/lufei1.jpg");
-                background-size: 100%;
-            }
             .content{
                 display: flex;
                 position: relative;
                 justify-content: space-around;
                 align-items: center;
-                width: 45%;
+                width: 30%;
                 float: left;
                 padding: 10px;
                 margin: 0 15px 15px 0;
@@ -99,28 +80,8 @@
                 border: 1px dotted #ccc;
                 border-radius: 16px;
                 overflow: hidden;
-                &::before{
-                    content: "";
-                    background-color: $back;
-                    opacity: 0.3;
-                    -webkit-transform: skew(45deg,0);
-                    transform: skew(45deg,0);
-                    width: 0;
-                    height: 100%;
-                    position: absolute;
-                    top: 0;
-                    left: -60px;
-                    z-index: -1;
-                    -webkit-transition: all .5s;
-                    transition: all .5s;
-                }
                 &:hover{
                     border: 1px dotted $back;
-                    &::before{
-                        transform: skew(0,0);
-                        width: 100%;
-                        left: 0;
-                    }
                     & img{
                         transform: rotateZ(360deg);
                     }
@@ -157,4 +118,16 @@
             }
         }
     }
+    @media (max-width: $MQMobile)
+        .container{
+            padding: 1rem !important
+        }
+        .content
+            width: 45% !important;
+    @media (max-width: $MQMobileNarrow)
+        .container{
+            padding: 1rem !important
+        }
+        .content
+            width: 85% !important;
 </style>

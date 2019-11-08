@@ -9,8 +9,7 @@
         <SearchBox v-else-if="$site.themeConfig.search !== false && data.search !== false"/>
       </header>
     </div>
-    <div class="home-tag">
-      <!--<Tags @tagChange="($event) => {tagChange($event)}"></Tags>-->
+    <div class="home-categories">
       <Categories @categoriesChange="($event) => {categoriesChange($event)}"></Categories>
     </div>
     <Content class="theme-default-content custom"/>
@@ -100,7 +99,7 @@ export default {
           background-color #fff
 
 
-.home-tag
+.home-categories
   padding 1rem 8rem
 
 .home-page
@@ -113,7 +112,7 @@ export default {
       max-width 100%
       padding 0 2.5rem
 
-  .home-tag
+  .home-categories
     padding 1rem 0
   .home-page
     padding 1rem 0
@@ -137,7 +136,7 @@ export default {
     .feature
       h2
         font-size 1.25rem
-  .home-tag
+  .home-categories
     padding 1rem 0
   .home-page
     padding 1rem 0

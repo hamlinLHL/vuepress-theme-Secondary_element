@@ -23,12 +23,12 @@
             const pageTags = this.$site.pages.filter(page => {
                 return page.frontmatter && page.frontmatter.tags && page.frontmatter.tags.length > 0
             });
-            console.log(pageTags);
             pageTags.forEach(page => {
                 page.frontmatter.tags.forEach(tag => {
                     this.isTagExit(tag);
                 })
             });
+            console.log(this.tags, '111')
         },
         methods: {
             // 判断是否存在tag

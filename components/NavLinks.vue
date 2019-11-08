@@ -47,7 +47,7 @@ export default {
       if (this.$site.themeConfig.categories
               && this.$site.themeConfig.categories.index
               && typeof  this.$site.themeConfig.categories.index === 'number') {
-        this.$site.themeConfig.categories.link = '/CategoriesLayout/';
+        this.$site.themeConfig.categories.link = '/categories/';
         if (this.$site.themeConfig.categories.index <= 0) {
           links.unshift(this.$site.themeConfig.categories)
         } else if(this.$site.themeConfig.categories.index > this.$site.themeConfig.nav.length -1) {
@@ -57,7 +57,7 @@ export default {
         }
       }
       if (this.$site.themeConfig.tags && this.$site.themeConfig.tags.index && typeof  this.$site.themeConfig.tags.index === 'number') {
-        this.$site.themeConfig.tags.link = '/TagsLayout/';
+        this.$site.themeConfig.tags.link = '/tags/';
         if (this.$site.themeConfig.tags.index <= 0) {
           links.unshift(this.$site.themeConfig.tags)
         } else if(this.$site.themeConfig.tags.index > this.$site.themeConfig.nav.length -1) {
@@ -66,7 +66,26 @@ export default {
           links.splice(this.$site.themeConfig.tags.index - 1, 0, this.$site.themeConfig.tags)
         }
       }
-      console.log(links);
+      if (this.$site.themeConfig.timeLine && this.$site.themeConfig.timeLine.index && typeof  this.$site.themeConfig.timeLine.index === 'number') {
+        this.$site.themeConfig.timeLine.link = '/timeLine/';
+        if (this.$site.themeConfig.timeLine.index <= 0) {
+          links.unshift(this.$site.themeConfig.timeLine)
+        } else if(this.$site.themeConfig.timeLine.index > this.$site.themeConfig.nav.length -1) {
+          links.push(this.$site.themeConfig.timeLine)
+        } else {
+          links.splice(this.$site.themeConfig.timeLine.index - 1, 0, this.$site.themeConfig.timeLine)
+        }
+      }
+      if (this.$site.themeConfig.friendLink && this.$site.themeConfig.friendLink.index && typeof  this.$site.themeConfig.friendLink.index === 'number') {
+        this.$site.themeConfig.friendLink.link = '/friendLink/';
+        if (this.$site.themeConfig.friendLink.index <= 0) {
+          links.unshift(this.$site.themeConfig.friendLink)
+        } else if(this.$site.themeConfig.friendLink.index > this.$site.themeConfig.nav.length -1) {
+          links.push(this.$site.themeConfig.friendLink)
+        } else {
+          links.splice(this.$site.themeConfig.friendLink.index - 1, 0, this.$site.themeConfig.friendLink)
+        }
+      }
       return links;
     },
     userNav () {
