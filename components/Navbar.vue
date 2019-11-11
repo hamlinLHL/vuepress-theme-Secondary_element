@@ -263,6 +263,7 @@ $accentColor = #f45a8d
 @media (max-width: $MQMobile)
   .navbar
     padding-left 4rem
+    z-index 1000
     header
       .hero
         .search-box

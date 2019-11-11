@@ -22,7 +22,6 @@ export default {
 
 <style lang="stylus">
 .sidebar
-  z-index 999
   ul
     padding 0
     margin 0

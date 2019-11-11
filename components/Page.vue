@@ -242,6 +242,7 @@ function flatten (items, res) {
 .page
   padding-top 4rem
   padding-bottom 2rem
+  padding-right 2rem
   display block
   img
     width 100%

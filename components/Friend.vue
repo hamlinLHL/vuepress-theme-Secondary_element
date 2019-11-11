@@ -67,6 +67,7 @@
         .box{
             width: 100%;
             margin-top: 20px;
+            cursor pointer
             .content{
                 display: flex;
                 position: relative;
