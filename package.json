@@ -1,6 +1,6 @@
 {
   "name": "vuepress-theme-secondary_element",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "secondary_element",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,14 @@
     "vue",
     "theme"
   ],
-  "author": "hamlin",
+  "author": {
+    "name": "Hamlin",
+    "email": "1780597343@qq.com"
+  },
+  "bugs": {
+    "url": "https://github.com/ChaselLHL/vuepress-theme-Secondary_element/issues",
+    "email": "1780597343@qq.com"
+  },
   "license": "ISC",
   "devDependencies": {},
   "dependencies": {

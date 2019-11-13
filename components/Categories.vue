@@ -28,7 +28,6 @@
                     this.isCategoriesExit(categorie);
                 })
             });
-            console.log(this.categories, '2222')
         },
         methods: {
             // 判断是否存在tag

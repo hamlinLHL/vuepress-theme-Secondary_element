@@ -17,7 +17,9 @@
         </div>
         <div class="pageTag item">
             <i class="iconfont hamlin-tag"></i>
-            <span v-for="tag in getTags($page)">{{tag}}</span>
+            <router-link
+                    :to="'/tags'"><span v-for="tag in getTags($page)">{{tag}}</span>
+            </router-link>
         </div>
     </div>
 </template>
@@ -27,7 +29,6 @@
         name: "pageTitle",
         methods: {
             getDate(page) {
-                console.log(page);
                 if (page.frontmatter.date) {
                     return page.frontmatter.date.replace(/-/g, '/');
                 } else if (page.date) {
@@ -53,6 +54,7 @@
         color #bbb
         .pageTag
             span
+                color #bbb
                 cursor pointer
                 padding-right 0.5rem
                 &:hover

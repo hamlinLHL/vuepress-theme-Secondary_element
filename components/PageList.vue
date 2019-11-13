@@ -4,15 +4,16 @@
             <div class="artical" v-for="page in renderPageControl" :key="page.path">
                 <router-link
                         :to="page.path"><h1>{{page.title}}</h1>
-                    <footer>
-                        <span class="author"><i class="iconfont hamlin-person"></i>{{$site.themeConfig.author}}</span>
-                        <span class="date"><i class="iconfont hamlin-time"></i>{{getDate(page)}}</span>
-                        <span class="tag"><i class="iconfont hamlin-tag"></i>
+                </router-link>
+                <footer>
+                    <span class="author"><i class="iconfont hamlin-person"></i>{{$site.themeConfig.author}}</span>
+                    <span class="date"><i class="iconfont hamlin-time"></i>{{getDate(page)}}</span>
+                    <span class="tag"><i class="iconfont hamlin-tag"></i>
                     <span v-for="tag in getValue(page)" :class="{'activeTag': tag === currentValue}">
                         {{tag}}
                     </span>
                 </span>
-                    </footer></router-link>
+                </footer>
             </div>
         </div>
         <div class="pageNum">
@@ -46,7 +47,6 @@
         },
         computed: {
             currentName() {
-                console.log(this.type);
                 return this.type.name;
             },
             currentValue() {
@@ -102,6 +102,15 @@
 
 <style scoped lang="stylus">
     $accentColor = #f45a8d
+    @keyframes shaking {
+        0%{transform: translateX(0rem)}
+        16%{transform: translateX(3rem)}
+        32%{transform: translateX(5rem)}
+        50%{transform: translateX(7em)}
+        66%{transform: translateX(5rem)}
+        83%{transform: translateX(3rem)}
+        100%{transform: translateX(0rem)}
+    }
     .pageNum
         padding 0 2rem
     .activeTag
@@ -115,7 +124,6 @@
         box-shadow 0 1px 12px -6px rgba(0,0,0,.5);
         transition all 0.5s ease
         overflow hidden
-        cursor pointer
         &::before
             position absolute
             top 100%
@@ -138,6 +146,9 @@
             padding-bottom 2rem
             font-size 1.8rem
             padding-top 1rem
+            cursor pointer
+            &:hover
+                animation shaking 500ms 2 forwards ease-in-out
         footer
             color #99a2aa;
             position: relative
@@ -155,6 +166,4 @@
                 margin-right 1rem
         &:first-child
             margin-top 0;
-
-
 </style>

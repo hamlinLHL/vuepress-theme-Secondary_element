@@ -28,7 +28,6 @@
                     this.isTagExit(tag);
                 })
             });
-            console.log(this.tags, '111')
         },
         methods: {
             // 判断是否存在tag

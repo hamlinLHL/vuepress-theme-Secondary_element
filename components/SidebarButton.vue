@@ -23,6 +23,5 @@
 
 @media (max-width: $MQMobile)
   .sidebar-button
-    z-index 1000
     display block
 </style>
