@@ -1,6 +1,6 @@
 <template>
   <div class="navbar">
-    <div class="header-bg"  :style="{backgroundImage: 'url(' + $withBase(getBgImage) + ')', filter: 'blur(4px)'}" :class="{home_bg: getBgImage === ''}">
+    <div class="header-bg"  :style="getBgStyle" :class="{home_bg: getBgImage === ''}">
 
     </div>
     <div class="nav-mask"></div>
@@ -14,10 +14,10 @@
         <div class="img-container">
           <img
                   class="logo"
-                  v-if="$site.themeConfig.logo"
-                  :src="$withBase(getLogo)"
+                  v-if="$site.themeConfig.avatar"
+                  :src="getAvatar"
                   :alt="$siteTitle"
-                  :class="{ 'can-hide': $site.themeConfig.logo }"
+                  :class="{ 'can-hide': $site.themeConfig.avatar }"
           >
           <div class="personal">
             <div class="personal-head">
@@ -65,7 +65,7 @@ export default {
 
   data () {
     return {
-      linksWrapMaxWidth: null
+      linksWrapMaxWidth: null,
     }
   },
 
@@ -85,18 +85,33 @@ export default {
   },
 
   computed: {
-    getLogo() {
-      if (this.$site.themeConfig.logo) {
-        return this.$site.themeConfig.logo
+    getAvatar() {
+      if (this.$site.themeConfig.avatar) {
+        if (this.$site.themeConfig.avatar.startsWith('http')) {
+          return this.$site.themeConfig.avatar;
+        } else {
+          return this.$withBase(this.$site.themeConfig.avatar);
+        }
       } else {
         return ''
       }
     },
     getBgImage() {
       if (this.data.bgImage) {
-        return this.data.bgImage
+        if (this.data.bgImage.startsWith('http')) {
+          return this.data.bgImage;
+        } else {
+          return this.$withBase(this.data.bgImage);
+        }
       } else {
         return ''
+      }
+    },
+    getBgStyle() {
+      if (this.data.bgImageStyle && this.data.bgImageStyle instanceof Object) {
+        return Object.assign({backgroundImage: 'url(' + this.$withBase(this.getBgImage) + ')', filter: 'blur(4px)'}, this.data.bgImageStyle)
+      } else {
+        return {}
       }
     },
     data () {
@@ -259,7 +274,15 @@ $accentColor = #f45a8d
         &.focused{
           background-color #fff
         }
+@media (max-width: 990px)
+  .navbar
+    .img-container
+      display none
 
+@media (max-width: 830px)
+  .navbar
+    .site-name
+      display none
 @media (max-width: $MQMobile)
   .navbar
     padding-left 4rem

@@ -177,6 +177,7 @@ export default {
     &:first-child
       margin-left 0
   .repo-link
+    position relative
     margin-left 1.5rem
 
 @media (max-width: $MQMobile)

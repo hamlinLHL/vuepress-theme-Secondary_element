@@ -45,7 +45,7 @@
                     this.back_btn.style.opacity = '0'
                 } else{
                     this.back.style.top = this.isMobie() ? '-30rem':'-20rem';
-                    this.back_btn.style.bottom = '0.5rem';
+                    this.back_btn.style.bottom = '1rem';
                     this.back_btn.style.opacity = '1'
                 }
             },
@@ -72,10 +72,10 @@
     .back
         position fixed;
         top -80rem
-        right 25px;
+        right -1rem;
         z-index 99;
-        width 70px;
-        height 900px;
+        width 4rem;
+        height 70rem;
         background url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/images/scroll.png) no-repeat center;
         cursor pointer;
         background-size contain;
@@ -91,5 +91,6 @@
         opacity 0;
         background-color rgba(255,255,255,.4);
         transition all .5s ease-in-out;
+        border-radius 50%
         cursor pointer
 </style>

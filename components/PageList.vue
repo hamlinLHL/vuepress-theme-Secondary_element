@@ -4,7 +4,6 @@
             <div class="artical" v-for="page in renderPageControl" :key="page.path">
                 <router-link
                         :to="page.path"><h1>{{page.title}}</h1>
-                </router-link>
                 <footer>
                     <span class="author"><i class="iconfont hamlin-person"></i>{{$site.themeConfig.author}}</span>
                     <span class="date"><i class="iconfont hamlin-time"></i>{{getDate(page)}}</span>
@@ -14,6 +13,7 @@
                     </span>
                 </span>
                 </footer>
+                </router-link>
             </div>
         </div>
         <div class="pageNum">
@@ -104,11 +104,7 @@
     $accentColor = #f45a8d
     @keyframes shaking {
         0%{transform: translateX(0rem)}
-        16%{transform: translateX(3rem)}
-        32%{transform: translateX(5rem)}
-        50%{transform: translateX(7em)}
-        66%{transform: translateX(5rem)}
-        83%{transform: translateX(3rem)}
+        50%{transform: translateX(5rem)}
         100%{transform: translateX(0rem)}
     }
     .pageNum
@@ -148,7 +144,7 @@
             padding-top 1rem
             cursor pointer
             &:hover
-                animation shaking 500ms 2 forwards ease-in-out
+                animation shaking 500ms infinite forwards ease-in-out
         footer
             color #99a2aa;
             position: relative
