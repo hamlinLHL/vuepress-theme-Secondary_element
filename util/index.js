@@ -208,10 +208,6 @@ export function resolveMatchingConfig (regularPath, config) {
   return {}
 }
 
-export function isMobie() {
-    return navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i) !== null;
-}
-
 function ensureEndingSlash (path) {
   return /(\.html|\/)$/.test(path)
     ? path

@@ -8,7 +8,6 @@
 </template>
 
 <script>
-    import {isMobie} from '../util'
     export default {
         name: "BackToTop",
         data() {
@@ -36,7 +35,6 @@
 
         },
         methods: {
-            isMobie,
             handleScroll() {
                 this.scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop; // 滚动条偏移量
                 if (this.scrollTop <= 0) {
@@ -44,7 +42,7 @@
                     this.back_btn.style.bottom = '-4rem';
                     this.back_btn.style.opacity = '0'
                 } else{
-                    this.back.style.top = this.isMobie() ? '-30rem':'-20rem';
+                    this.back.style.top = '-30rem';
                     this.back_btn.style.bottom = '1rem';
                     this.back_btn.style.opacity = '1'
                 }

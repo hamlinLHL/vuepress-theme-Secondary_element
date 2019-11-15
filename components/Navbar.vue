@@ -43,7 +43,7 @@
         <NavLinks class="can-hide"/>
       </div>
 
-      <div class="hero" v-if="isMobie()">
+      <div class="hero">
         <AlgoliaSearchBox
                 v-if="isAlgoliaSearch"
                 :options="algolia"
@@ -57,7 +57,6 @@
 <script>
 import SidebarButton from '@theme/components/SidebarButton.vue'
 import NavLinks from '@theme/components/NavLinks.vue'
-import {isMobie} from '../util'
 import SearchBox from '@SearchBox'
 import AlgoliaSearchBox from '@AlgoliaSearchBox'
 export default {
@@ -125,10 +124,6 @@ export default {
       return this.algolia && this.algolia.apiKey && this.algolia.indexName
     }
   },
-
-  methods: {
-    isMobie
-  }
 }
 
 function css (el, property) {
@@ -166,6 +161,7 @@ $accentColor = #f45a8d
     z-index 99
     box-sizing border-box
     .hero
+      display none
     .search-box
       position absolute
       right: 1.2rem;
@@ -289,6 +285,7 @@ $accentColor = #f45a8d
     z-index 1000
     header
       .hero
+        display block
         .search-box
           input
             width 0

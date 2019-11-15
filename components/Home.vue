@@ -1,7 +1,7 @@
 <template>
   <main  aria-labelledby="main-title" >
     <div class="home" :style="getBgStyle">
-      <header class="hero" v-if="!isMobie()">
+      <header class="hero">
         <AlgoliaSearchBox
                 v-if="isAlgoliaSearch"
                 :options="algolia"
@@ -32,7 +32,6 @@ import AlgoliaSearchBox from '@AlgoliaSearchBox'
 import SearchBox from '@SearchBox'
 import Tags from '@theme/components/Tags.vue'
 import PageList from '@theme/components/PageList.vue'
-import {isMobie} from '../util'
 import Categories from  '@theme/components/Categories.vue'
 export default {
   components: { NavLink, SearchBox, AlgoliaSearchBox, Tags , PageList, Categories},
@@ -77,7 +76,6 @@ export default {
   },
 
   methods: {
-    isMobie,
     tagChange(tag) {
       this.type.name = 'tags';
       this.type.value = tag;
@@ -132,6 +130,7 @@ export default {
     padding-left 1.5rem
     padding-right 1.5rem
     .hero
+      display none
       img
         max-height 210px
         margin 2rem auto 1.2rem

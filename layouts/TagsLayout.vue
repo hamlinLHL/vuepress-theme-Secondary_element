@@ -12,7 +12,6 @@
 <script>
     import Tags from '@theme/components/Tags.vue'
     import PageList from '@theme/components/PageList.vue'
-    import {isMobie} from '../util'
     export default {
         name: "TagsLayout",
         components: {Tags, PageList},
@@ -25,7 +24,6 @@
             }
         },
         methods: {
-            isMobie,
             tagChange(tag) {
                 this.type.name = 'tags';
                 this.type.value = tag;
