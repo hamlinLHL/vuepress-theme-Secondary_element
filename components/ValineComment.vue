@@ -8,7 +8,6 @@
 </template>
 
 <script>
-    import Valine from 'valine'
     export default {
         name: "ValineComment",
         data() {
@@ -24,7 +23,7 @@
                         document.getElementsByClassName('leancloud-visitors')[0].id = path;
                     }
                     const valineConfig = this.$site.themeConfig.valineConfig;
-                    this.valine.init(Object.assign({
+                    new this.valine(Object.assign({
                         el:'#comment',
                         path: path,
                     }, valineConfig))
@@ -37,15 +36,16 @@
             },
         },
         mounted() {
+            this.valine = require('valine');
+            // const AV = require('leancloud-storage');
             if (typeof window !== 'undefined') {
-                window.AV = require('leancloud-storage')
+                // window.AV = AV;
             }
-            this.valine = new Valine();
             this.addComment();
         },
         watch: {
             $route (to, from) {
-                if (from.path != to.path) {
+                if (from.path !== to.path) {
                     this.addComment();
                 }
             }

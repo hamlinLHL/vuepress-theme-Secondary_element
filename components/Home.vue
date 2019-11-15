@@ -1,6 +1,6 @@
 <template>
   <main  aria-labelledby="main-title" >
-    <div class="home" :style="{backgroundImage: 'url(' + $withBase(getBgImage) + ')'}">
+    <div class="home" :style="getBgStyle">
       <header class="hero" v-if="!isMobie()">
         <AlgoliaSearchBox
                 v-if="isAlgoliaSearch"
@@ -47,9 +47,20 @@ export default {
   computed: {
     getBgImage() {
       if (this.data.bgImage) {
-        return this.data.bgImage
+        if (this.data.bgImage.startsWith('http')) {
+          return this.data.bgImage;
+        } else {
+          return this.$withBase(this.data.bgImage);
+        }
       } else {
         return ''
+      }
+    },
+    getBgStyle() {
+      if (this.data.bgImageStyle && this.data.bgImageStyle instanceof Object) {
+        return Object.assign({backgroundImage: 'url(' + this.$withBase(this.getBgImage) + ')'}, this.data.bgImageStyle)
+      } else {
+        return {}
       }
     },
     data () {
