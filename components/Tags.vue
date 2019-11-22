@@ -64,29 +64,22 @@
             float left;
             display flex;
             padding 0.5rem 0.5rem;
-            flex-direction column;
+            flex-direction row
             align-items center;
             cursor pointer;
             width 4rem;
             text-align center;
-            transform scale(1);
-            transition all 0.5s ease;
             &:hover
-                transform: scale(1.1);
+                color #1890ff
 
             .tag-number
                 color #fff;
-                background-color #ffafc9;
+                background-color #73c9e5;
                 border-radius 0.2rem;
                 max-width 1.8rem;
                 min-width 0.8rem;
                 padding 0.1rem 0.2rem;
+                margin-left 0.3rem
                 text-align center;
-
-            .tag-name
-                width 100%;
-                overflow hidden;
-                text-align center;
-                text-overflow ellipsis;
 
 </style>

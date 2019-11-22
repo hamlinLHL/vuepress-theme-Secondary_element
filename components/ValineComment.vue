@@ -10,11 +10,6 @@
 <script>
     export default {
         name: "ValineComment",
-        data() {
-            return {
-                valine: null,
-            }
-        },
         methods: {
             addComment() {
                 if (this.showComment) {
@@ -23,7 +18,8 @@
                         document.getElementsByClassName('leancloud-visitors')[0].id = path;
                     }
                     const valineConfig = this.$site.themeConfig.valineConfig;
-                    new this.valine(Object.assign({
+                    const valine = require('valine');
+                    new valine(Object.assign({
                         el:'#comment',
                         path: path,
                     }, valineConfig))
@@ -36,11 +32,6 @@
             },
         },
         mounted() {
-            this.valine = require('valine');
-            // const AV = require('leancloud-storage');
-            if (typeof window !== 'undefined') {
-                // window.AV = AV;
-            }
             this.addComment();
         },
         watch: {
