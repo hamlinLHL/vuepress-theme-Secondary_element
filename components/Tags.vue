@@ -5,8 +5,8 @@
             <span class="tag-name">全部</span>
         </div>
         <div class="tag" v-for="tag in tags" :key="tag.name" @click="$emit('tagChange', tag.name)" :title="tag.name">
-            <span class="tag-number">{{tag.number}}</span>
             <span class="tag-name">{{tag.name}}</span>
+            <span class="tag-number">{{tag.number}}</span>
         </div>
     </div>
 </template>
@@ -64,14 +64,16 @@
             float left;
             display flex;
             padding 0.5rem 0.5rem;
-            flex-direction row
             align-items center;
             cursor pointer;
-            width 4rem;
             text-align center;
+            border 1px solid #73c9e5
+            border-radius 2px
+            margin-right 1rem
+            margin-bottom: 0.5rem;
             &:hover
                 color #1890ff
-
+                box-shadow 0px 0px 5px #73c9e5 inset
             .tag-number
                 color #fff;
                 background-color #73c9e5;

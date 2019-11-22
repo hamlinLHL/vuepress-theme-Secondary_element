@@ -78,6 +78,9 @@
         methods: {
             getDate(page) {
                 if (page.frontmatter.date) {
+                    if (page.frontmatter.date.includes("T")) {
+                        return page.frontmatter.date.replace(/-/g, '/').split("T")[0];
+                    }
                     return page.frontmatter.date.replace(/-/g, '/');
                 } else if (page.date) {
                     return page.date.replace(/-/g, '/');

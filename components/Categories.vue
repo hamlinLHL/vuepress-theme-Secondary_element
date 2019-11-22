@@ -4,7 +4,7 @@
             <i class="iconfont hamlin-home"></i>
             <span class="tag-name">全部</span>
         </div>
-        <div class="tag" v-for="categorie in categories" :key="categorie.name" @click="$emit('categoriesChange', categorie.name)" :title="categorie.name">
+        <div class="tag" v-for="categorie in categories" :key="categorie.name + categorie.number" @click="$emit('categoriesChange', categorie.name)" :title="categorie.name">
             <span class="tag-name">{{categorie.name}}</span>
             <span class="tag-number">{{categorie.number}}</span>
         </div>
@@ -64,7 +64,6 @@
             float left;
             display flex;
             padding 0.5rem 0.5rem;
-            flex-direction row;
             align-items center;
             cursor pointer;
             text-align center;

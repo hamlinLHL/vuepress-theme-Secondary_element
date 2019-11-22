@@ -50,9 +50,6 @@
 </script>
 <style lang="stylus">
     $back = lightsalmon;
-    *{
-        list-style: none;
-    }
     .container{
         padding: 1rem 8rem
         width: 100%;

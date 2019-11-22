@@ -127,6 +127,9 @@
 
 <style scoped lang="stylus">
     $lineWidth = 0.6rem
+    ul
+        li
+            list-style: none;
     .timeline
         position relative
         margin -2rem auto
